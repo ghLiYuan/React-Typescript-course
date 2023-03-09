@@ -1,0 +1,25 @@
+.login-container {
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /*background-image: url("/loginBg.svg");*/
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  position: relative;
+}
+.login-title {
+  font-weight: bold;
+  font-size: 36px;
+  word-break: break-all;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.login-form {
+  padding: 24px;
+  background-color: rgba(255,255,255,.8);
+  width: 360px;
+  border-radius: 10px;
+  z-index: 5;
+}
