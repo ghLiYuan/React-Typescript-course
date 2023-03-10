@@ -1,11 +1,11 @@
 import { Button, Form, Input, Space } from 'antd'
 import './Login.css'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
-import CanvasBackgound from '@/Components/CanvasBackgound/CanvasBackgound'
-import {userLoginApi, userInfoApi} from '@/api/user'
-import type {LoginData} from '@/types/user'
 import SparkMd5 from 'spark-md5'
-import {useState} from 'react'
+import { useState } from 'react'
+import CanvasBackgound from '@/Components/CanvasBackgound/CanvasBackgound'
+import { userLoginApi } from '@/api/user'
+import type { LoginData } from '@/types/user'
 
 const Login = () => {
   const [form] = Form.useForm()
@@ -14,13 +14,14 @@ const Login = () => {
     const obj: LoginData = {
       email: values.email,
       passwd: SparkMd5.hash(values.passwd),
-      captcha: values.captcha
+      captcha: values.captcha,
     }
-    const res = await userLoginApi(obj)
+    console.log(obj.xx)
+    await userLoginApi(obj)
   }
 
   const [captcha, setCaptcha] = useState('/api/captcha')
-  function handleCaptcha () {
+  function handleCaptcha() {
     setCaptcha(`/api/captcha?${Math.random()}`)
   }
 

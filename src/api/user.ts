@@ -1,5 +1,5 @@
-import {axios} from '@/utils'
-import type {LoginData, LoginRes} from '@/types/user'
+import { axios } from '@/utils'
+import type { LoginData, LoginRes } from '@/types/user'
 
 export async function userLoginApi(obj: LoginData) {
   return axios.post('/user/login', obj)
