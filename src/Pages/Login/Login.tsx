@@ -17,6 +17,7 @@ const Login = () => {
       captcha: values.captcha,
     }
     console.log(obj.xx)
+    console.log(obj.abc)
     await userLoginApi(obj)
   }
 
