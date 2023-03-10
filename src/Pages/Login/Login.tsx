@@ -16,7 +16,7 @@ const Login = () => {
       passwd: SparkMd5.hash(values.passwd),
       captcha: values.captcha,
     }
-    console.log(obj.b)
+    console.log(obj.a)
     await userLoginApi(obj)
   }
 
