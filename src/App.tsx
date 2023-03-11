@@ -20,11 +20,16 @@
 // }
 import { HashRouter } from 'react-router-dom'
 import Router from './Routers/Router'
+import AuthProvider from '@/Components/AuthProvider'
 import './App.css'
 function App() {
-  return <HashRouter>
-    <Router />
-  </HashRouter>
+  return (
+    <AuthProvider>
+      <HashRouter>
+        <Router />
+      </HashRouter>
+    </AuthProvider>
+  )
 }
 
 export default App

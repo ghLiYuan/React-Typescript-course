@@ -1,4 +1,4 @@
-import { Button, Form, Input, Space } from 'antd'
+import { Button, Form, Input, Space, message } from 'antd'
 import './Login.css'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import SparkMd5 from 'spark-md5'
@@ -6,17 +6,27 @@ import { useState } from 'react'
 import CanvasBackgound from '@/Components/CanvasBackgound/CanvasBackgound'
 import { userLoginApi } from '@/api/user'
 import type { LoginData } from '@/types/user'
+import {storage} from '@/utils'
+import {useNavigate} from 'react-router-dom'
+import {useAuth} from '@/hooks/useAuth'
 
 const Login = () => {
   const [form] = Form.useForm()
-
+  const navigate = useNavigate()
+  const auth = useAuth()
   async function onFinish(values: LoginData) {
     const obj: LoginData = {
       email: values.email,
       passwd: SparkMd5.hash(values.passwd),
       captcha: values.captcha,
     }
-    await userLoginApi(obj)
+    const res = await userLoginApi(obj)
+    if (res.token) {
+      storage.setToken(res.token)
+      message.success('登录成功')
+      auth.login(res)
+      navigate('/dashboard')
+    }
   }
 
   const [captcha, setCaptcha] = useState('/api/captcha')
