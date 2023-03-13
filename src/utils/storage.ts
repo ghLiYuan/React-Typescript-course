@@ -9,5 +9,5 @@ export const storage = {
   },
   clearToken() {
     window.localStorage.removeItem(`${storagePrefix}token`)
-  }
+  },
 }

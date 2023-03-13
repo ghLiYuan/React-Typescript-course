@@ -3,12 +3,12 @@ import './Login.css'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import SparkMd5 from 'spark-md5'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import CanvasBackgound from '@/Components/CanvasBackgound/CanvasBackgound'
 import { userLoginApi } from '@/api/user'
 import type { LoginData } from '@/types/user'
-import {storage} from '@/utils'
-import {useNavigate} from 'react-router-dom'
-import {useAuth} from '@/hooks/useAuth'
+import { storage } from '@/utils'
+import { useAuth } from '@/hooks/useAuth'
 
 const Login = () => {
   const [form] = Form.useForm()
@@ -25,7 +25,7 @@ const Login = () => {
       storage.setToken(res.token)
       message.success('登录成功')
       auth.login(res)
-      navigate('/dashboard')
+      navigate('/dashboard/index')
     }
   }
 

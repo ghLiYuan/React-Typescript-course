@@ -1,6 +1,6 @@
-import {createContext, useState} from 'react'
-import type {LoginRes} from '@/types/user'
-import type {ReactNode} from 'react'
+import { createContext, useState } from 'react'
+import type { ReactNode } from 'react'
+import type { LoginRes } from '@/types/user'
 
 export interface AuthContextType {
   user: LoginRes
@@ -12,7 +12,7 @@ export interface AuthContextType {
 const emptyUser: LoginRes = {
   _id: '',
   email: '',
-  token: ''
+  token: '',
 }
 
 export const AuthContext = createContext<AuthContextType | null>(null)
@@ -26,9 +26,9 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(emptyUser)
   }
   const setToken = (token: string) => {
-    setUser({...user, token})
+    setUser({ ...user, token })
   }
-  return <AuthContext.Provider value={{user, login, logout, setToken}}>
+  return <AuthContext.Provider value={{ user, login, logout, setToken }}>
     {children}
   </AuthContext.Provider>
 }
