@@ -1,15 +1,15 @@
-import { Layout } from "antd"
-import { useAuth } from "@/hooks/useAuth"
-import { useEffect } from "react"
-import { storage } from "@/utils"
-import { userInfoApi } from "@/api/user"
+import { Layout } from 'antd'
+import { useEffect } from 'react'
+import { useAuth } from '@/hooks/useAuth'
+import { storage } from '@/utils'
+import { userInfoApi } from '@/api/user'
 
-const {Header} = Layout
-export const HeaderStyle:React.CSSProperties = {
+const { Header } = Layout
+export const HeaderStyle: React.CSSProperties = {
   textAlign: 'center',
   color: '#fff',
   height: 64,
-  lineHeight: '64px'
+  lineHeight: '64px',
 }
 
 const MyHeader = () => {
@@ -21,7 +21,7 @@ const MyHeader = () => {
         auth.login({
           _id: res._id,
           email: res.email,
-          token
+          token,
         })
       })
     }

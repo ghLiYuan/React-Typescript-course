@@ -1,22 +1,22 @@
-import { authRoutes } from "@/Routers/Router"
-import { Menu } from "antd"
-import type { MenuProps } from "antd"
-import { useState } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import { Menu } from 'antd'
+import type { MenuProps } from 'antd'
+import { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { authRoutes } from '@/Routers/Router'
 
-const menuStyle:React.CSSProperties = {
-  height: '100%'
+const menuStyle: React.CSSProperties = {
+  height: '100%',
 }
 
 function getOpenKeys(pathname: string) {
-  if (pathname.split('/').length === 3) {
+  if (pathname.split('/').length === 3)
     return [pathname.slice(0, pathname.lastIndexOf('/'))]
-  }
+
   return [pathname]
 }
 
 const Sidebar = () => {
-  const {pathname} = useLocation()
+  const { pathname } = useLocation()
   const navigate = useNavigate()
   const [openKeys, setOpenKeys] = useState<string[]>(getOpenKeys(pathname))
   const [selectedKeys, setSelectedKeys] = useState<string[]>([pathname])
@@ -29,19 +29,19 @@ const Sidebar = () => {
       label: route.meta?.title,
       children: route.children?.map((childRoute, j) => {
         return {
-          key: childRoute.path,
-          label: childRoute.meta?.title
+          key: childRoute.path || String(j),
+          label: childRoute.meta?.title,
         }
-      })
+      }),
     }
   })
   const handleOpenChange: MenuProps['onOpenChange'] = (keys) => {
     setOpenKeys(keys)
   }
-  const handleClick: MenuProps['onClick'] = ({key}) => {
+  const handleClick: MenuProps['onClick'] = ({ key }) => {
     navigate(key)
   }
-  const handleSelect: MenuProps['onSelect'] = ({key}) => {
+  const handleSelect: MenuProps['onSelect'] = ({ key }) => {
     setSelectedKeys([key])
   }
 

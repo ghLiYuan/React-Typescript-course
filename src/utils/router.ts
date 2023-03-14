@@ -1,5 +1,5 @@
-import type { MyRouterObject } from '@/types/router'
 import { resolvePath } from 'react-router-dom'
+import type { MyRouterObject } from '@/types/router'
 
 export function searchRoute(pathname: string, routes: MyRouterObject[]): MyRouterObject {
   let result: MyRouterObject = {}
@@ -20,7 +20,7 @@ export function searchRoute(pathname: string, routes: MyRouterObject[]): MyRoute
 }
 
 export function normiorizeRoute(routes: MyRouterObject[], isSort = true): MyRouterObject[] {
-  const result: MyRouterObject[]  =[]
+  const result: MyRouterObject[] = []
   for (const route of routes) {
     if (route.children) {
       route.children.forEach((child) => {
@@ -28,9 +28,10 @@ export function normiorizeRoute(routes: MyRouterObject[], isSort = true): MyRout
       })
       result.push({
         ...route,
-        children: normiorizeRoute(route.children, false)
+        children: normiorizeRoute(route.children, false),
       })
-    } else {
+    }
+    else {
       result.push(route)
     }
   }

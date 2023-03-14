@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom'
-import { Layout, Space, theme } from 'antd';
-import MyHeader, {HeaderStyle} from '@/Components/layout/Header';
-import Sidebar from '@/Components/layout/Sidebar';
-const { Header, Footer, Sider, Content } = Layout;
+import { Layout, Space } from 'antd'
+import MyHeader from '@/Components/layout/Header'
+import Sidebar from '@/Components/layout/Sidebar'
+const { Footer, Sider, Content } = Layout
 
 const headerStyle: React.CSSProperties = {
   textAlign: 'center',
@@ -11,26 +11,25 @@ const headerStyle: React.CSSProperties = {
   paddingInline: 50,
   lineHeight: '64px',
   backgroundColor: '#7dbcea',
-};
+}
 const footerStyle: React.CSSProperties = {
   textAlign: 'center',
   // color: '',
   backgroundColor: '#fff',
-  height: 64
-};
+  height: 64,
+}
 
 const contentStyle: React.CSSProperties = {
   backgroundColor: '#eee',
-  minHeight: `calc(100vh - ${headerStyle.height}px - ${footerStyle.height}px)`
-};
+  minHeight: `calc(100vh - ${headerStyle.height}px - ${footerStyle.height}px)`,
+}
 
 const siderStyle: React.CSSProperties = {
   textAlign: 'center',
   lineHeight: '120px',
   color: '#fff',
   backgroundColor: '#3ba0e9',
-};
-
+}
 
 const LayoutApp = () => {
   return (
