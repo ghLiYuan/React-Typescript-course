@@ -5,6 +5,7 @@ import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { searchRoute, storage } from '@/utils'
 import { rootRouter } from '@/Routers/Router'
+import Watermark from '@/Components/Watermark'
 
 const AuthRouter = ({ children }: { children: JSX.Element }) => {
   const { pathname } = useLocation()
@@ -17,7 +18,11 @@ const AuthRouter = ({ children }: { children: JSX.Element }) => {
   if (!auth.user || !token)
     return <Navigate to="/login" replace={true} />
 
-  return children
+  return (
+    <Watermark text={auth.user._id}>
+      {children}
+    </Watermark>
+  )
 }
 
 export default AuthRouter
