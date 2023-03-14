@@ -15,7 +15,7 @@ const FormRouter: MyRouterObject[] = [
         path: 'index',
         element: <div>表单首页</div>,
         meta: {
-          title: 'Dashboard',
+          title: '表单',
         },
       },
     ],
