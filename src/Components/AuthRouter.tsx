@@ -18,10 +18,13 @@ const AuthRouter = ({ children }: { children: JSX.Element }) => {
   if (!auth.user || !token)
     return <Navigate to="/login" replace={true} />
 
+  // return (
+  //   <Watermark text={auth.user._id}>
+  //     {children}
+  //   </Watermark>
+  // )
   return (
-    <Watermark text={auth.user._id}>
-      {children}
-    </Watermark>
+    children
   )
 }
 
