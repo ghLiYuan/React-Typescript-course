@@ -5,7 +5,6 @@ import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { searchRoute, storage } from '@/utils'
 import { rootRouter } from '@/Routers/Router'
-import Watermark from '@/Components/Watermark'
 
 const AuthRouter = ({ children }: { children: JSX.Element }) => {
   const { pathname } = useLocation()

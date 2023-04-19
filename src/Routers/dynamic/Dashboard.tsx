@@ -1,7 +1,7 @@
+import { lazy } from 'react'
 import type { MyRouterObject } from '@/types/router'
 import LayoutApp from '@/layout/LayoutApp'
-import { lazy } from 'react'
-import {LazyLoad} from '@/Components/LazyLoad'
+import { LazyLoad } from '@/Components/LazyLoad'
 
 const DashboardRouter: MyRouterObject[] = [
   {
@@ -24,8 +24,8 @@ const DashboardRouter: MyRouterObject[] = [
         path: 'data-render',
         element: LazyLoad(lazy(() => import('@/Components/DataRender'))),
         meta: {
-          title: '大数据量渲染'
-        }
+          title: '大数据量渲染',
+        },
       },
     ],
   },
